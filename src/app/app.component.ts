@@ -3,25 +3,15 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   HostListener,
+  inject,
+  OnInit,
   signal,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-enum GuessStatus {
-  Wrong = 'x',
-  Right = 'y',
-  Partial = 'z',
-  ActiveGuess = 'a',
-  Empty = '_',
-}
-
-interface GuessValue {
-  value: string;
-  status: GuessStatus;
-}
-
-type Guess = [GuessValue, GuessValue, GuessValue, GuessValue, GuessValue];
+import { Guess, GuessStatus } from './game.interface';
+import { StorageService } from './storage.service';
 
 const VALID_CHARS = /^[A-Za-z]$/;
 const ENTER_VALUES = ['ENTER', 'Enter'];
@@ -37,7 +27,7 @@ const MAX_ATTEMPTS = 6;
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'good-wordle';
   protected GuessStatus = GuessStatus;
   protected readonly word = signal('GHAST');
@@ -63,8 +53,22 @@ export class AppComponent {
   protected readonly currentGuessIndex = computed(
     () => this.guesses().length - 1
   );
+  protected readonly storageService = inject(StorageService);
 
-  @HostListener('window:keydown', ['$event.key'])
+  constructor() {
+    // Save game on guess
+    effect(() => {
+      const guesses = this.guesses();
+      this.storageService.saveGame(guesses);
+    });
+  }
+
+  ngOnInit(): void {
+    const game = this.storageService.loadGame();
+    this.guesses.set(game.guesses);
+  }
+
+  @HostListener('window:keyup', ['$event.key'])
   handleKeydown(key: string) {
     this.handleLetter(key);
   }

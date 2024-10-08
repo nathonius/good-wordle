@@ -1,9 +1,13 @@
-<div id="guesses" class="flex justify-center flex-col gap-3 my-2 mx-2">
+<div class="text-center mt-1">
+  <h1 class="text-2xl">Good Wordle</h1>
+  <h2 class="text-sm">It's not particularly good, but it doesn't have ads.</h2>
+</div>
+<div id="guesses" class="flex justify-center flex-col gap-3 my-4 mx-2">
   @for (guess of board(); track $index) {
   <div class="flex justify-center gap-3">
     @for (guessValue of guess; track $index) {
     <div
-      class="guess-value border-solid border border-neutral-600 flex flex-1 h-20 max-w-20 justify-center items-center font-bold text-lg"
+      class="border-solid border border-neutral-600 flex flex-1 h-16 max-w-16 justify-center items-center font-bold text-xl"
       [ngClass]="{
           'bg-success': guessValue.status === GuessStatus.Right,
           'bg-warning': guessValue.status === GuessStatus.Partial,
