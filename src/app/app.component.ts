@@ -12,6 +12,7 @@ import {
 import { RouterOutlet } from '@angular/router';
 import { Guess, GuessStatus } from './game.interface';
 import { StorageService } from './storage.service';
+import { KbdComponent } from './kbd/kbd.component';
 
 const VALID_CHARS = /^[A-Za-z]$/;
 const ENTER_VALUES = ['ENTER', 'Enter'];
@@ -22,7 +23,7 @@ const MAX_ATTEMPTS = 6;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgClass],
+  imports: [RouterOutlet, NgClass, KbdComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

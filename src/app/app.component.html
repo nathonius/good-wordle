@@ -22,42 +22,45 @@
   }
 </div>
 <div class="flex justify-center">
+  @let g = guesses();
   <div id="keyboard" class="flex flex-col justify-center gap-2 w-max">
     <div class="flex justify-center gap-2 flex-wrap">
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('Q')">Q</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('W')">W</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('E')">E</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('R')">R</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('T')">T</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('Y')">Y</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('U')">U</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('I')">I</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('O')">O</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('P')">P</kbd>
+      <app-kbd letter="Q" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="W" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="E" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="R" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="T" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="Y" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="U" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="I" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="O" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="P" [guesses]="g" (onLetter)="handleLetter($event)" />
     </div>
     <div class="flex justify-center gap-2 flex-wrap">
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('A')">A</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('S')">S</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('D')">D</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('F')">F</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('G')">G</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('H')">H</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('J')">J</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('K')">K</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('L')">L</kbd>
+      <app-kbd letter="A" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="S" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="D" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="F" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="G" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="H" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="J" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="K" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="L" [guesses]="g" (onLetter)="handleLetter($event)" />
     </div>
     <div class="flex justify-center gap-2 flex-wrap">
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('ENTER')"
-        >ENTER</kbd
-      >
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('Z')">Z</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('X')">X</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('C')">C</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('V')">V</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('B')">B</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('N')">N</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('M')">M</kbd>
-      <kbd class="btn btn-sm md:btn-md" (click)="handleLetter('DEL')">DEL</kbd>
+      <app-kbd
+        letter="ENTER"
+        [guesses]="[]"
+        (onLetter)="handleLetter($event)"
+      />
+      <app-kbd letter="Z" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="X" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="C" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="V" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="B" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="N" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="M" [guesses]="g" (onLetter)="handleLetter($event)" />
+      <app-kbd letter="DEL" [guesses]="[]" (onLetter)="handleLetter($event)" />
     </div>
   </div>
 </div>
